@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace Algorithm.Tests
 {
     [TestFixture]
-    public class AlgorithmSortTest
+    public class BubbleSortDelegateOnIntefaceTest
     {
         [Test]
         public void SortJaggedMethodBySum()
@@ -24,7 +24,7 @@ namespace Algorithm.Tests
                 new int[] { 18, -1, -2 },
                 new int[] { 15, 3, 9, -4 },
             };
-            AlgorithmSort.BubbleSort.SortJaggedArray(actualArray, new SortArraysBySumHelper());
+            AlgorithmSort.BubbleSortDelegateOnInterface.SortJaggedArray(actualArray, new SortArraysBySumHelper().Compare);
 
             CollectionAssert.AreEqual(expectedArray, actualArray);
         }
@@ -46,7 +46,7 @@ namespace Algorithm.Tests
                 new int[] { 1, 1, 2 },
                 null
             };
-            AlgorithmSort.BubbleSort.SortJaggedArray(actualArray, new SortArraysBySumDescendingHelper());
+            AlgorithmSort.BubbleSortDelegateOnInterface.SortJaggedArray(actualArray, new SortArraysBySumDescendingHelper().Compare);
 
             CollectionAssert.AreEqual(expectedArray, actualArray);
         }
@@ -70,7 +70,7 @@ namespace Algorithm.Tests
                 new int[] { 3, 4 },
                 new int[] { 12, 11 }
             };
-            AlgorithmSort.BubbleSort.SortJaggedArray(actualArray, new SortByMinElementHelper());
+            AlgorithmSort.BubbleSortDelegateOnInterface.SortJaggedArray(actualArray, new SortByMinElementHelper().Compare);
 
             CollectionAssert.AreEqual(expectedArray, actualArray);
         }
@@ -94,7 +94,7 @@ namespace Algorithm.Tests
                 null,
                 null
             };
-            AlgorithmSort.BubbleSort.SortJaggedArray(actualArray, new SortByMinElementDescendingHelper());
+            AlgorithmSort.BubbleSortDelegateOnInterface.SortJaggedArray(actualArray, new SortByMinElementDescendingHelper().Compare);
 
             CollectionAssert.AreEqual(expectedArray, actualArray);
         }
@@ -118,7 +118,7 @@ namespace Algorithm.Tests
                 new int[] { 10, 9, 8 },
                 new int[] { 5, 3, 1, 100 }
             };
-            AlgorithmSort.BubbleSort.SortJaggedArray(actualArray, new SortByMaxElementHelper());
+            AlgorithmSort.BubbleSortDelegateOnInterface.SortJaggedArray(actualArray, new SortByMaxElementHelper().Compare);
             CollectionAssert.AreEqual(expectedArray, actualArray);
         }
 
@@ -141,27 +141,27 @@ namespace Algorithm.Tests
                 null,
                 null
             };
-            AlgorithmSort.BubbleSort.SortJaggedArray(actualArray, new SortByMaxElementHelperDescendingHelper());
+            AlgorithmSort.BubbleSortDelegateOnInterface.SortJaggedArray(actualArray, new SortByMaxElementHelperDescendingHelper().Compare);
 
             CollectionAssert.AreEqual(expectedArray, actualArray);
         }
 
         [Test]
         public void SortJaggedMethod_NullReference_ArgumentNullException()
-        => Assert.Throws<ArgumentNullException>(() => AlgorithmSort.BubbleSort.SortJaggedArray(null, new SortByMaxElementHelperDescendingHelper()));
+        => Assert.Throws<ArgumentNullException>(() => AlgorithmSort.BubbleSortDelegateOnInterface.SortJaggedArray(null, new SortByMaxElementHelperDescendingHelper().Compare));
 
         [Test]
         public void SortJaggedMethod_ArrayWithZeroLength_ArgumentException()
-        => Assert.Throws<ArgumentException>(() => AlgorithmSort.BubbleSort.SortJaggedArray(new int[0][], new SortByMinElementHelper()));
+        => Assert.Throws<ArgumentException>(() => AlgorithmSort.BubbleSortDelegateOnInterface.SortJaggedArray(new int[0][], new SortByMinElementHelper().Compare));
 
         [Test]
         public void SortJaggedMethod_ArrayWithNullComparer_ArgumentNullException()
-        => Assert.Throws<ArgumentNullException>(() => AlgorithmSort.BubbleSort.SortJaggedArray(
-            new int[][] 
+        => Assert.Throws<ArgumentNullException>(() => AlgorithmSort.BubbleSortDelegateOnInterface.SortJaggedArray(
+            new int[][]
             {
             new int[] { 1, 2, 3 },
             new int[] { 3, 4, 5 }
-            }, 
+            },
             null));
     }
 }

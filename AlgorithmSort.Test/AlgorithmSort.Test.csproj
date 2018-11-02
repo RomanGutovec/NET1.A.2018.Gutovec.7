@@ -54,7 +54,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlgorithmSortTest.cs" />
+    <Compile Include="BubbleSortDelegateOnInterfaceTest.cs" />
+    <Compile Include="BubbleSortTests.cs" />
+    <Compile Include="BubbleSortInterfaceonDelegateTest.cs" />
     <Compile Include="Helpers\AlgorithmsHelper.cs" />
     <Compile Include="Helpers\SortArraysBySumDescendingHelper.cs" />
     <Compile Include="Helpers\SortArraysBySumHelper.cs" />
